@@ -5,6 +5,7 @@
 #include <QVector>
 #include <QString>
 #include <QStringBuilder>
+#include <QTimer>
 #include <math.h>
 
 DataSourceProvider * datUltrasoud;
