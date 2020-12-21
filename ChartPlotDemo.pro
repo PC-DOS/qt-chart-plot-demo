@@ -15,11 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     qcustomplot.cpp \
-    DataSourceProvider.cpp
+    DataSourceProvider.cpp \
+    StateMachine.cpp
 
 HEADERS  += mainwindow.h \
     qcustomplot.h \
-    StateMachineStates.h \
-    DataSourceProvider.h
+    DataSourceProvider.h \
+    StateMachine.h
 
 FORMS    += mainwindow.ui

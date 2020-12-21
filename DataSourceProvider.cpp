@@ -1,7 +1,6 @@
 #include "DataSourceProvider.h"
-#include "StateMachineStates.h"
 #include <iostream>
-#include <vector>
+#include <QVector>
 #include <math.h>
 #include <cstdlib>
 #include <ctime>
@@ -10,7 +9,6 @@ using namespace std;
 
 DataSourceProvider::DataSourceProvider(){
     cerr<<"DataSourceProvider: Initializing with default values: SamplingRate=100Hz, Timespan=1000ms, Gain=6.02dB (x2)."<<endl;
-    _iCurrentState=SM_STATE_NOTMAL;
     _iCurrentSamplingRate=100;
     _dCurrentGain=2;
     _iCurrentDisplayTimespan=1000;
@@ -32,7 +30,6 @@ DataSourceProvider::DataSourceProvider(int iSamplingRateInHz, double dGainInMult
         cerr<<"DataSourceProvider: Invalid display timespan, using default value 1000 ms."<<endl;
         iDisplayTimespanInMillisecond=1000;
     }
-    _iCurrentState=SM_STATE_NOTMAL;
     _iCurrentSamplingRate=iSamplingRateInHz;
     _dCurrentGain=dGainInMultiple;
     _iCurrentDisplayTimespan=iDisplayTimespanInMillisecond;
@@ -106,11 +103,11 @@ int DataSourceProvider::GetCurrentPointsPerPlot(){
     return _iPointsPerPlot;
 }
 
-vector<double> DataSourceProvider::GeneratePlotForTesting(){
-    vector<double> arrData;
+QVector<double> DataSourceProvider::GeneratePlotForTesting(){
     srand(time(0));
+    _arrData.clear();
     for (int i=1; i<=_iPointsPerPlot;++i){
-        arrData.push_back((double(rand())/double(__INT_MAX__)*_dCurrentGain));
+        _arrData.push_back((double(rand())/double(__INT_MAX__)*_dCurrentGain));
     }
-    return arrData;
+    return _arrData;
 }

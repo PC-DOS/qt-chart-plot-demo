@@ -1,16 +1,16 @@
 #ifndef DATASOURCEPROVIDER_H
 #define DATASOURCEPROVIDER_H
 
-#include "StateMachineStates.h"
-#include <vector>
+#include <QVector>
 
 class DataSourceProvider{
 private:
-    int _iCurrentState;
     int _iCurrentSamplingRate;
     double _dCurrentGain; //In multiples, to generate value in dB, use: dB = 20lg(Multiples)
     int _iCurrentDisplayTimespan;
     int _iPointsPerPlot;
+
+    QVector<double> _arrData;
 
 public:
     DataSourceProvider();
@@ -30,7 +30,7 @@ public:
     int GetCurrentDisplayTimespan();
     int GetCurrentPointsPerPlot();
 
-    std::vector<double> GeneratePlotForTesting();
+    QVector<double> GeneratePlotForTesting();
 };
 
 #endif // DATASOURCEPROVIDER_H
