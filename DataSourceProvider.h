@@ -2,6 +2,7 @@
 #define DATASOURCEPROVIDER_H
 
 #include <QVector>
+#include <QString>
 
 class DataSourceProvider{
 private:
@@ -30,7 +31,11 @@ public:
     int GetCurrentDisplayTimespan();
     int GetCurrentPointsPerPlot();
 
-    QVector<double> GeneratePlotForTesting();
+    QString SamplingRateToString(bool IsUnitTranslationEnabled=true);
+    QString GainToString(bool IsDbEnabled=true, bool IsDbOnly=false);
+    QString DisplayTimespanToString();
+
+    const QVector<double> &GeneratePlotForTesting();
 };
 
 #endif // DATASOURCEPROVIDER_H

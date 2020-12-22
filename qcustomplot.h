@@ -2424,6 +2424,9 @@ public:
   
   // setters:
   void setAutoSqueeze(bool enabled);
+
+  // access mData directly, see https://www.cnblogs.com/pied/p/5164000.html
+  QVector<DataType>* coreData() {return &mData;}
   
   // non-virtual methods:
   void set(const QCPDataContainer<DataType> &data);

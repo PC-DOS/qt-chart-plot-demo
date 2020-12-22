@@ -510,7 +510,7 @@
      </layout>
     </item>
     <item row="0" column="0">
-     <widget class="QWidget" name="" native="true">
+     <widget class="QWidget" name="widget" native="true">
       <property name="palette">
        <palette>
         <active>
