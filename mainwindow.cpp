@@ -23,6 +23,7 @@ void MainWindow::RegenerateXAxisData(){
 }
 
 void MainWindow::tmrDataGenerationTimer_Tick(){
+    ui->chrtData->addGraph();
     QVector<double> arrData=datUltrasoud->GeneratePlotForTesting();
     QVector<QCPGraphData> *mData;
     mData = ui->chrtData->graph(0)->data()->coreData();
@@ -33,10 +34,16 @@ void MainWindow::tmrDataGenerationTimer_Tick(){
         gpdDataPoint.value=arrData[i];
         mData->append(gpdDataPoint);
     }
-    ui->chrtData->graph(0)->setData(arrXAxis,datUltrasoud->GeneratePlotForTesting(),true);
     ui->chrtData->xAxis->setRange(0,datUltrasoud->GetCurrentDisplayTimespan());
     ui->chrtData->yAxis->setRange(0,50);
+    //ui->wgtChartContainer->setUpdatesEnabled(true);
+    //ui->chrtData->setUpdatesEnabled(true);
     ui->chrtData->replot(QCustomPlot::rpQueuedReplot);
+    //ui->chrtData->update();
+    //ui->chrtData->repaint();
+    //ui->wgtChartContainer->update();
+    //ui->wgtChartContainer->repaint();
+    QApplication::processEvents(QEventLoop::AllEvents);
     return;
 }
 
