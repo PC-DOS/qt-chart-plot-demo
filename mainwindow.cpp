@@ -23,7 +23,6 @@ void MainWindow::RegenerateXAxisData(){
 }
 
 void MainWindow::tmrDataGenerationTimer_Tick(){
-    ui->chrtData->addGraph();
     QVector<double> arrData=datUltrasoud->GeneratePlotForTesting();
     QVector<QCPGraphData> *mData;
     mData = ui->chrtData->graph(0)->data()->coreData();
@@ -36,14 +35,10 @@ void MainWindow::tmrDataGenerationTimer_Tick(){
     }
     ui->chrtData->xAxis->setRange(0,datUltrasoud->GetCurrentDisplayTimespan());
     ui->chrtData->yAxis->setRange(0,50);
-    //ui->wgtChartContainer->setUpdatesEnabled(true);
-    //ui->chrtData->setUpdatesEnabled(true);
     ui->chrtData->replot(QCustomPlot::rpQueuedReplot);
-    //ui->chrtData->update();
-    //ui->chrtData->repaint();
-    //ui->wgtChartContainer->update();
-    //ui->wgtChartContainer->repaint();
-    QApplication::processEvents(QEventLoop::AllEvents);
+    //ui->chrtData->layer("main")->replot(QCustomPlot::rpQueuedReplot);
+    qApp->processEvents();
+    QApplication::processEvents();
     return;
 }
 
@@ -66,7 +61,8 @@ MainWindow::MainWindow(QWidget *parent) :
     //QCustomPlot performance workarounds
     //ui->chrtData->setOpenGl(true);
     ui->chrtData->setNotAntialiasedElements(QCP::aeAll);
-    ui->chrtData->setPlottingHints(QCP::phFastPolylines | QCP::phImmediateRefresh);
+    ui->chrtData->setPlottingHints(QCP::phFastPolylines);
+    ui->chrtData->layer("main")->setMode(QCPLayer::lmBuffered);
 
     //QCustomPlot style
     ui->chrtData->axisRect()->setupFullAxesBox();

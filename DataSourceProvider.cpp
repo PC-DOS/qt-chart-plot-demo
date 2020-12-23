@@ -13,8 +13,8 @@
 using namespace std;
 
 DataSourceProvider::DataSourceProvider(){
-    cerr<<"DataSourceProvider: Initializing with default values: SamplingRate=1 MHz, Timespan=25 ms, Gain=6.02 dB (x2)."<<endl;
-    _iCurrentSamplingRate=1000000;
+    cerr<<"DataSourceProvider: Initializing with default values: SamplingRate=16 MHz, Timespan=25 ms, Gain=6.02 dB (x2)."<<endl;
+    _iCurrentSamplingRate=16000000;
     _dCurrentGain=2;
     _iCurrentDisplayTimespan=25;
     _iPointsPerPlot=(double(_iCurrentDisplayTimespan)/double(1000))*_iCurrentSamplingRate;
@@ -24,8 +24,8 @@ DataSourceProvider::DataSourceProvider(){
 DataSourceProvider::DataSourceProvider(int iSamplingRateInHz, double dGainInMultiple, int iDisplayTimespanInMillisecond){
     cerr<<"DataSourceProvider: Initializing with default values."<<endl;
     if (iSamplingRateInHz<=0){
-        cerr<<"DataSourceProvider: Invalid sampling rate, using default value 1 MHz."<<endl;
-        iSamplingRateInHz=1000000;
+        cerr<<"DataSourceProvider: Invalid sampling rate, using default value 16 MHz."<<endl;
+        iSamplingRateInHz=16000000;
     }
     if (dGainInMultiple<=0){
         cerr<<"DataSourceProvider: Invalid gain, using default value 6.02 dB (x2)."<<endl;
@@ -145,7 +145,7 @@ QString DataSourceProvider::DisplayTimespanToString(){
 }
 
 const QVector<double> & DataSourceProvider::GeneratePlotForTesting(){
-    srand(time(0));
+    //srand(time(0));
     _arrData.clear();
     for (int i=1; i<=_iPointsPerPlot;++i){
         _arrData.push_back((double(rand())/double(__INT_MAX__)*_dCurrentGain));
