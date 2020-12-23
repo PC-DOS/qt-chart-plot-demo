@@ -4,6 +4,14 @@
 #include <QVector>
 #include <QString>
 
+#define UNIT_G 1000000000
+#define UNIT_M 1000000
+#define UNIT_K 1000
+
+#define DATA_DEFAULT_SAMPLING_RATE 2000000
+#define DATA_DEFAULT_GAIN 2
+#define DATA_DEFAULT_DISPLAY_TIME_SPAN 25
+
 class DataSourceProvider{
 private:
     int _iCurrentSamplingRate;
@@ -32,8 +40,11 @@ public:
     int GetCurrentPointsPerPlot();
 
     QString SamplingRateToString(bool IsUnitTranslationEnabled=true);
+    QString SamplingRateToString(int iSamplingRateInHz, bool IsUnitTranslationEnabled=true);
     QString GainToString(bool IsDbEnabled=true, bool IsDbOnly=false);
+    QString GainToString(double dGainInMultiple, bool IsDbEnabled=true, bool IsDbOnly=false);
     QString DisplayTimespanToString();
+    QString DisplayTimespanToString(int iDisplayTimespanInMillisecond);
 
     const QVector<double> &GeneratePlotForTesting();
 };

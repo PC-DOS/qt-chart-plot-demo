@@ -36,7 +36,7 @@ void MainWindow::tmrDataGenerationTimer_Tick(){
     ui->chrtData->xAxis->setRange(0,datUltrasoud->GetCurrentDisplayTimespan());
     ui->chrtData->yAxis->setRange(0,50);
     ui->chrtData->replot(QCustomPlot::rpQueuedReplot);
-    //ui->chrtData->layer("main")->replot(QCustomPlot::rpQueuedReplot);
+    //ui->chrtData->layer("main")->replot();
     qApp->processEvents();
     QApplication::processEvents();
     return;

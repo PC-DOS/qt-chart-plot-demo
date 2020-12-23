@@ -4,36 +4,34 @@
 #include <QString>
 #include <math.h>
 #include <cstdlib>
-#include <ctime>
-
-#define UNIT_G 1000000000
-#define UNIT_M 1000000
-#define UNIT_K 1000
 
 using namespace std;
 
 DataSourceProvider::DataSourceProvider(){
-    cerr<<"DataSourceProvider: Initializing with default values: SamplingRate=16 MHz, Timespan=25 ms, Gain=6.02 dB (x2)."<<endl;
-    _iCurrentSamplingRate=16000000;
-    _dCurrentGain=2;
-    _iCurrentDisplayTimespan=25;
+    cerr<<"DataSourceProvider: Initializing with default values: SamplingRate="<<qPrintable(SamplingRateToString(DATA_DEFAULT_SAMPLING_RATE,true))
+        <<", Timespan="<<qPrintable(DisplayTimespanToString(DATA_DEFAULT_DISPLAY_TIME_SPAN))
+        <<", Gain="<<qPrintable(GainToString(double(DATA_DEFAULT_GAIN),true,false))<<"."
+        <<endl;
+    _iCurrentSamplingRate=DATA_DEFAULT_SAMPLING_RATE;
+    _dCurrentGain=DATA_DEFAULT_GAIN;
+    _iCurrentDisplayTimespan=DATA_DEFAULT_DISPLAY_TIME_SPAN;
     _iPointsPerPlot=(double(_iCurrentDisplayTimespan)/double(1000))*_iCurrentSamplingRate;
     //TODO: Drivers
 }
 
 DataSourceProvider::DataSourceProvider(int iSamplingRateInHz, double dGainInMultiple, int iDisplayTimespanInMillisecond){
-    cerr<<"DataSourceProvider: Initializing with default values."<<endl;
+    cerr<<"DataSourceProvider: Initializing with given values."<<endl;
     if (iSamplingRateInHz<=0){
-        cerr<<"DataSourceProvider: Invalid sampling rate, using default value 16 MHz."<<endl;
-        iSamplingRateInHz=16000000;
+        cerr<<"DataSourceProvider: Invalid sampling rate, using default value "<<qPrintable(SamplingRateToString(DATA_DEFAULT_SAMPLING_RATE,true))<<"."<<endl;
+        iSamplingRateInHz=DATA_DEFAULT_SAMPLING_RATE;
     }
     if (dGainInMultiple<=0){
-        cerr<<"DataSourceProvider: Invalid gain, using default value 6.02 dB (x2)."<<endl;
-        dGainInMultiple=2;
+        cerr<<"DataSourceProvider: Invalid gain, using default value "<<qPrintable(GainToString(double(DATA_DEFAULT_GAIN),true,false))<<"."<<endl;
+        dGainInMultiple=DATA_DEFAULT_GAIN;
     }
     if (iDisplayTimespanInMillisecond<=0){
-        cerr<<"DataSourceProvider: Invalid display timespan, using default value 25 ms."<<endl;
-        iDisplayTimespanInMillisecond=25;
+        cerr<<"DataSourceProvider: Invalid display timespan, using default value "<<qPrintable(DisplayTimespanToString(DATA_DEFAULT_DISPLAY_TIME_SPAN))<<"."<<endl;
+        iDisplayTimespanInMillisecond=DATA_DEFAULT_DISPLAY_TIME_SPAN;
     }
     _iCurrentSamplingRate=iSamplingRateInHz;
     _dCurrentGain=dGainInMultiple;
@@ -128,6 +126,27 @@ QString DataSourceProvider::SamplingRateToString(bool IsUnitTranslationEnabled){
     }
 }
 
+QString DataSourceProvider::SamplingRateToString(int iSamplingRateInHz, bool IsUnitTranslationEnabled){
+    iSamplingRateInHz=abs(iSamplingRateInHz);
+    if (IsUnitTranslationEnabled){
+        if (iSamplingRateInHz>=UNIT_G){
+            return QString::number(double(iSamplingRateInHz)/double(UNIT_G),'g',5)+QString(" GHz");
+        }
+        else if (iSamplingRateInHz>=UNIT_M){
+            return QString::number(double(iSamplingRateInHz)/double(UNIT_M),'g',5)+QString(" MHz");
+        }
+        else if (iSamplingRateInHz>=UNIT_K){
+            return QString::number(double(iSamplingRateInHz)/double(UNIT_K),'g',5)+QString(" kHz");
+        }
+        else{
+            return QString::number(iSamplingRateInHz)+QString(" Hz");
+        }
+    }
+    else{
+        return QString::number(iSamplingRateInHz)+QString(" Hz");
+    }
+}
+
 QString DataSourceProvider::GainToString(bool IsDbEnabled, bool IsDbOnly){
     if (IsDbOnly){
         return QString::number(DataSourceProvider::MultipleToDb(_dCurrentGain),'g',4)+QString(" dB");
@@ -140,12 +159,30 @@ QString DataSourceProvider::GainToString(bool IsDbEnabled, bool IsDbOnly){
     }
 }
 
+QString DataSourceProvider::GainToString(double dGainInMultiple, bool IsDbEnabled, bool IsDbOnly){
+    if (dGainInMultiple<=0){
+        return QString("x0");
+    }
+    if (IsDbOnly){
+        return QString::number(DataSourceProvider::MultipleToDb(dGainInMultiple),'g',4)+QString(" dB");
+    }
+    if (IsDbEnabled){
+        return QString("x")+QString::number(dGainInMultiple,'g',2)+QString(" (")+QString::number(DataSourceProvider::MultipleToDb(dGainInMultiple),'g',4)+QString(" dB)");
+    }
+    else{
+        return QString("x")+QString::number(dGainInMultiple,'g',2);
+    }
+}
+
 QString DataSourceProvider::DisplayTimespanToString(){
     return QString::number(_iCurrentDisplayTimespan)+QString(" ms");
 }
 
+QString DataSourceProvider::DisplayTimespanToString(int iDisplayTimespanInMillisecond){
+    return QString::number(abs(iDisplayTimespanInMillisecond))+QString(" ms");
+}
+
 const QVector<double> & DataSourceProvider::GeneratePlotForTesting(){
-    //srand(time(0));
     _arrData.clear();
     for (int i=1; i<=_iPointsPerPlot;++i){
         _arrData.push_back((double(rand())/double(__INT_MAX__)*_dCurrentGain));
