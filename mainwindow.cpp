@@ -13,7 +13,13 @@ StateMachine * smCurrentState;
 QTimer *tmrDataGenerationTimer;
 
 QVector<double> arrXAxis;
-int iCount = 0;
+
+#ifdef TIMER_PERFORMANCE_TESTING
+QTimer *tmrFrameCounter;
+long long iTotalFrames=0;
+int iCurrentFrames=0;
+int iFps=1;
+#endif
 
 void MainWindow::RegenerateXAxisData(){
     arrXAxis.clear();
@@ -33,14 +39,30 @@ void MainWindow::tmrDataGenerationTimer_Tick(){
         gpdDataPoint.value=arrData[i];
         mData->append(gpdDataPoint);
     }
+    ui->chrtData->graph(0)->setData(arrXAxis,datUltrasoud->GeneratePlotForTesting());
     ui->chrtData->xAxis->setRange(0,datUltrasoud->GetCurrentDisplayTimespan());
     ui->chrtData->yAxis->setRange(0,50);
-    ui->chrtData->replot(QCustomPlot::rpQueuedReplot);
+    ui->chrtData->replot(QCustomPlot::rpImmediateRefresh);
     //ui->chrtData->layer("main")->replot();
-    qApp->processEvents();
-    QApplication::processEvents();
+    //qApp->processEvents();
+    //QApplication::processEvents();
     return;
 }
+
+#ifdef TIMER_PERFORMANCE_TESTING
+void MainWindow::tmrFrameCounter_Tick(){
+    iFps=iCurrentFrames;
+    iCurrentFrames=0;
+    ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
+    return;
+}
+
+void MainWindow::chrtData_afterReplot(){
+    ++iCurrentFrames;
+    ++iTotalFrames;
+    ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
+}
+#endif
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -109,6 +131,17 @@ MainWindow::MainWindow(QWidget *parent) :
     tmrDataGenerationTimer = new QTimer(this);
     connect(tmrDataGenerationTimer, SIGNAL(timeout()), this, SLOT(tmrDataGenerationTimer_Tick()));
     tmrDataGenerationTimer->start(datUltrasoud->GetCurrentDisplayTimespan());
+
+#ifdef TIMER_PERFORMANCE_TESTING
+    //Frame Counter
+    ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
+    connect(ui->chrtData, SIGNAL(afterReplot()), this, SLOT(chrtData_afterReplot()));
+    tmrFrameCounter=new QTimer(this);
+    connect(tmrFrameCounter, SIGNAL(timeout()), this, SLOT(tmrFrameCounter_Tick()));
+    tmrFrameCounter->start(1000);
+#else
+    ui->lblCounter->setVisible(false);
+#endif
 }
 
 MainWindow::~MainWindow()

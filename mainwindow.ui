@@ -632,6 +632,19 @@
         </spacer>
        </item>
        <item>
+        <widget class="QLabel" name="lblCounter">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <stylestrategy>NoAntialias</stylestrategy>
+          </font>
+         </property>
+         <property name="text">
+          <string>0 Plot(s)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QProgressBar" name="prgBattPct">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">

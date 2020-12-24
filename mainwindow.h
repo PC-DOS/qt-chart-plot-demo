@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#define TIMER_PERFORMANCE_TESTING
+
 namespace Ui {
 class MainWindow;
 }
@@ -17,6 +19,11 @@ public:
 
 private slots:
     void tmrDataGenerationTimer_Tick();
+
+#ifdef TIMER_PERFORMANCE_TESTING
+    void tmrFrameCounter_Tick();
+    void chrtData_afterReplot();
+#endif
 
 private:
     Ui::MainWindow *ui;
