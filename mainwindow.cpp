@@ -16,9 +16,9 @@ QVector<double> arrXAxis;
 
 #ifdef TIMER_PERFORMANCE_TESTING
 QTimer *tmrFrameCounter;
-long long iTotalFrames=0;
-int iCurrentFrames=0;
-int iFps=1;
+unsigned long long iTotalFrames=0;
+unsigned int iCurrentFrames=0;
+unsigned int iFps=1;
 #endif
 
 void MainWindow::RegenerateXAxisData(){
@@ -26,6 +26,11 @@ void MainWindow::RegenerateXAxisData(){
     for (int i=0; i<datUltrasoud->GetCurrentPointsPerPlot();++i){
         arrXAxis.push_back(double(i)*double(1000)/double(datUltrasoud->GetCurrentSamlingRate()));
     }
+}
+
+void MainWindow::UpdateAxisData(){
+    ui->chrtData->xAxis->setRange(0,datUltrasoud->GetCurrentDisplayTimespan());
+    ui->chrtData->yAxis->setRange(0,50);
 }
 
 void MainWindow::tmrDataGenerationTimer_Tick(){
@@ -39,10 +44,7 @@ void MainWindow::tmrDataGenerationTimer_Tick(){
         gpdDataPoint.value=arrData[i];
         mData->append(gpdDataPoint);
     }
-    ui->chrtData->graph(0)->setData(arrXAxis,datUltrasoud->GeneratePlotForTesting());
-    ui->chrtData->xAxis->setRange(0,datUltrasoud->GetCurrentDisplayTimespan());
-    ui->chrtData->yAxis->setRange(0,50);
-    ui->chrtData->replot(QCustomPlot::rpImmediateRefresh);
+    ui->chrtData->replot(QCustomPlot::rpQueuedReplot);
     //ui->chrtData->layer("main")->replot();
     //qApp->processEvents();
     //QApplication::processEvents();
@@ -84,7 +86,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //ui->chrtData->setOpenGl(true);
     ui->chrtData->setNotAntialiasedElements(QCP::aeAll);
     ui->chrtData->setPlottingHints(QCP::phFastPolylines);
-    ui->chrtData->layer("main")->setMode(QCPLayer::lmBuffered);
+    //ui->chrtData->layer("main")->setMode(QCPLayer::lmBuffered);
 
     //QCustomPlot style
     ui->chrtData->axisRect()->setupFullAxesBox();
@@ -176,6 +178,7 @@ void MainWindow::keyReleaseEvent(QKeyEvent *KeyEventArgs){
                 datUltrasoud->SetCurrentSamplingRate(datUltrasoud->GetCurrentSamlingRate()*2);
                 ui->lblSamplingRate->setText(datUltrasoud->SamplingRateToString());
                 RegenerateXAxisData();
+                UpdateAxisData();
             }
             break;
         case SM_STATE_GAIN_ADJUSTING:
@@ -189,6 +192,7 @@ void MainWindow::keyReleaseEvent(QKeyEvent *KeyEventArgs){
                 datUltrasoud->SetCurrentDisplayTimespan(datUltrasoud->GetCurrentDisplayTimespan()*2);
                 ui->lblTimespan->setText(datUltrasoud->DisplayTimespanToString());
                 RegenerateXAxisData();
+                UpdateAxisData();
                 tmrDataGenerationTimer->setInterval(datUltrasoud->GetCurrentDisplayTimespan());
             }
             break;
@@ -206,6 +210,7 @@ void MainWindow::keyReleaseEvent(QKeyEvent *KeyEventArgs){
                 datUltrasoud->SetCurrentSamplingRate(datUltrasoud->GetCurrentSamlingRate()/2);
                 ui->lblSamplingRate->setText(datUltrasoud->SamplingRateToString());
                 RegenerateXAxisData();
+                UpdateAxisData();
             }
             break;
         case SM_STATE_GAIN_ADJUSTING:
@@ -219,6 +224,7 @@ void MainWindow::keyReleaseEvent(QKeyEvent *KeyEventArgs){
                 datUltrasoud->SetCurrentDisplayTimespan(datUltrasoud->GetCurrentDisplayTimespan()/2);
                 ui->lblTimespan->setText(datUltrasoud->DisplayTimespanToString());
                 RegenerateXAxisData();
+                UpdateAxisData();
                 tmrDataGenerationTimer->setInterval(datUltrasoud->GetCurrentDisplayTimespan());
             }
             break;

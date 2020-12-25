@@ -28,6 +28,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     void RegenerateXAxisData();
+    void UpdateAxisData();
 
 protected:
     virtual void keyPressEvent(QKeyEvent *KeyEventArgs);
