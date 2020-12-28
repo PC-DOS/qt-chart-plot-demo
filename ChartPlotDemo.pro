@@ -23,3 +23,6 @@ HEADERS  += mainwindow.h \
     StateMachine.h
 
 FORMS    += mainwindow.ui
+
+QMAKE_CXXFLAGS_DEBUG += -O2
+QMAKE_CXXFLAGS_RELEASE += -O2

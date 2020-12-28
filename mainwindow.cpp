@@ -82,12 +82,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lblGain->setText(datUltrasoud->GainToString());
     ui->lblTimespan->setText(datUltrasoud->DisplayTimespanToString());
 
-    //QCustomPlot performance workarounds
-    //ui->chrtData->setOpenGl(true);
-    ui->chrtData->setNotAntialiasedElements(QCP::aeAll);
-    ui->chrtData->setPlottingHints(QCP::phFastPolylines);
-    //ui->chrtData->layer("main")->setMode(QCPLayer::lmBuffered);
-
     //QCustomPlot style
     ui->chrtData->axisRect()->setupFullAxesBox();
     QFont fntAxisFont(ui->chrtData->xAxis->tickLabelFont());
@@ -127,6 +121,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->chrtData->graph(0)->setAntialiased(false);
     ui->chrtData->graph(0)->setAntialiasedFill(false);
     ui->chrtData->graph(0)->setAntialiasedScatters(false);
+
+    //QCustomPlot performance workarounds
+    //ui->chrtData->setOpenGl(true);
+    ui->chrtData->setNotAntialiasedElements(QCP::aeAll);
+    ui->chrtData->setNoAntialiasingOnDrag(true);
+    ui->chrtData->setPlottingHints(QCP::phCacheLabels);
+    ui->chrtData->graph(0)->setPen(QPen(QColor(0,150,245),1));
+    //ui->chrtData->layer("main")->setMode(QCPLayer::lmBuffered);
 
     //Start Timer
     RegenerateXAxisData();
