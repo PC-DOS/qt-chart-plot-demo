@@ -45,6 +45,11 @@ void MainWindow::tmrDataGenerationTimer_Tick(){
         mData->append(gpdDataPoint);
     }
     ui->chrtData->replot(QCustomPlot::rpQueuedReplot);
+#ifdef TIMER_PERFORMANCE_TESTING
+    ++iCurrentFrames;
+    ++iTotalFrames;
+    ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
+#endif
     //ui->chrtData->layer("main")->replot();
     //qApp->processEvents();
     //QApplication::processEvents();
@@ -60,9 +65,9 @@ void MainWindow::tmrFrameCounter_Tick(){
 }
 
 void MainWindow::chrtData_afterReplot(){
-    ++iCurrentFrames;
-    ++iTotalFrames;
-    ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
+    //++iCurrentFrames;
+    //++iTotalFrames;
+    //ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
 }
 #endif
 

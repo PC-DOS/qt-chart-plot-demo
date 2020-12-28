@@ -185,7 +185,7 @@ QString DataSourceProvider::DisplayTimespanToString(int iDisplayTimespanInMillis
 const QVector<double> & DataSourceProvider::GeneratePlotForTesting(){
     _arrData.clear();
     for (int i=1; i<=_iPointsPerPlot;++i){
-        _arrData.push_back((double(rand())/double(__INT_MAX__)*_dCurrentGain));
+        _arrData.push_back((double(rand())/double(__INT_MAX__)+2.5*sin(5.0*3.1415926*i/_iPointsPerPlot)+5)*_dCurrentGain);
     }
     return _arrData;
 }
