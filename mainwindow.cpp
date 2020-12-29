@@ -133,6 +133,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->chrtData->setNoAntialiasingOnDrag(true);
     ui->chrtData->setPlottingHints(QCP::phCacheLabels);
     ui->chrtData->graph(0)->setPen(QPen(QColor(0,150,245),1));
+    ui->chrtData->graph(0)->setLineStyle(QCPGraph::lsLine);
     //ui->chrtData->layer("main")->setMode(QCPLayer::lmBuffered);
 
     //Start Timer
