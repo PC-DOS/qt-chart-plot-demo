@@ -131,7 +131,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //ui->chrtData->setOpenGl(true);
     ui->chrtData->setNotAntialiasedElements(QCP::aeAll);
     ui->chrtData->setNoAntialiasingOnDrag(true);
-    ui->chrtData->setPlottingHints(QCP::phCacheLabels);
+    ui->chrtData->setPlottingHints(QCP::phCacheLabels | QCP::phImmediateRefresh);
     ui->chrtData->graph(0)->setPen(QPen(QColor(0,150,245),1));
     ui->chrtData->graph(0)->setLineStyle(QCPGraph::lsLine);
     //ui->chrtData->layer("main")->setMode(QCPLayer::lmBuffered);
