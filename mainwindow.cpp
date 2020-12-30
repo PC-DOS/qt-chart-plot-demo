@@ -127,17 +127,19 @@ MainWindow::MainWindow(QWidget *parent) :
     if (0==ui->chrtData->graphCount()){
         ui->chrtData->addGraph();
     }
-    ui->chrtData->graph(0)->setAntialiased(false);
-    ui->chrtData->graph(0)->setAntialiasedFill(false);
-    ui->chrtData->graph(0)->setAntialiasedScatters(false);
 
     //QCustomPlot performance workarounds
     //ui->chrtData->setOpenGl(true);
     ui->chrtData->setNotAntialiasedElements(QCP::aeAll);
     ui->chrtData->setNoAntialiasingOnDrag(true);
     ui->chrtData->setPlottingHints(QCP::phCacheLabels | QCP::phImmediateRefresh);
+    ui->chrtData->graph(0)->setAntialiased(false);
+    ui->chrtData->graph(0)->setAntialiasedFill(false);
+    ui->chrtData->graph(0)->setAntialiasedScatters(false);
     ui->chrtData->graph(0)->setPen(QPen(QColor(0,150,245),1));
     ui->chrtData->graph(0)->setLineStyle(QCPGraph::lsLine);
+    ui->chrtData->graph(0)->setScatterStyle(QCPScatterStyle::ssNone);
+    ui->chrtData->graph(0)->setAdaptiveSampling(true);
     //ui->chrtData->layer("main")->setMode(QCPLayer::lmBuffered);
 
     //Start Timer
