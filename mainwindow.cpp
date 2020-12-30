@@ -47,8 +47,9 @@ void MainWindow::tmrDataGenerationTimer_Tick(){
     ui->chrtData->replot(QCustomPlot::rpQueuedReplot);
 #ifdef TIMER_PERFORMANCE_TESTING
     ++iCurrentFrames;
-    ++iTotalFrames;
-    ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
+    //++iTotalFrames;
+    //ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
+    //ui->lblCounter->setText(QString::number(iFps)+QString(" fps"));
 #endif
     //ui->chrtData->layer("main")->replot();
     //qApp->processEvents();
@@ -60,7 +61,8 @@ void MainWindow::tmrDataGenerationTimer_Tick(){
 void MainWindow::tmrFrameCounter_Tick(){
     iFps=iCurrentFrames;
     iCurrentFrames=0;
-    ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
+    //ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
+    ui->lblCounter->setText(QString::number(iFps)+QString(" fps"));
     return;
 }
 
@@ -68,6 +70,7 @@ void MainWindow::chrtData_afterReplot(){
     //++iCurrentFrames;
     //++iTotalFrames;
     //ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
+    //ui->lblCounter->setText(QString::number(iFps)+QString(" fps"));
 }
 #endif
 
@@ -144,7 +147,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 #ifdef TIMER_PERFORMANCE_TESTING
     //Frame Counter
-    ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
+    //ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
+    ui->lblCounter->setText(QString::number(iFps)+QString(" fps"));
     connect(ui->chrtData, SIGNAL(afterReplot()), this, SLOT(chrtData_afterReplot()));
     tmrFrameCounter=new QTimer(this);
     connect(tmrFrameCounter, SIGNAL(timeout()), this, SLOT(tmrFrameCounter_Tick()));
