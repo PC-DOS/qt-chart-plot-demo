@@ -112,8 +112,8 @@ class QCPColorMap;
 class QCPColorScale;
 class QCPBars;
 
-/* including file 'src/global.h', size 16357 */
-/* commit couldn't be retrieved              */
+/* including file 'src/global.h', size 16357                                 */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 #define QCUSTOMPLOT_VERSION_STR "2.0.1"
 #define QCUSTOMPLOT_VERSION 0x020001
@@ -381,8 +381,8 @@ Q_DECLARE_METATYPE(QCP::SelectionType)
 /* end of 'src/global.h' */
 
 
-/* including file 'src/vector2d.h', size 4928 */
-/* commit couldn't be retrieved               */
+/* including file 'src/vector2d.h', size 4928                                */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPVector2D
 {
@@ -455,8 +455,8 @@ inline QDebug operator<< (QDebug d, const QCPVector2D &vec)
 /* end of 'src/vector2d.h' */
 
 
-/* including file 'src/painter.h', size 4035 */
-/* commit couldn't be retrieved              */
+/* including file 'src/painter.h', size 4035                                 */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPPainter : public QPainter
 {
@@ -514,8 +514,8 @@ Q_DECLARE_METATYPE(QCPPainter::PainterMode)
 /* end of 'src/painter.h' */
 
 
-/* including file 'src/paintbuffer.h', size 4958 */
-/* commit couldn't be retrieved                  */
+/* including file 'src/paintbuffer.h', size 4958                             */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPAbstractPaintBuffer
 {
@@ -622,8 +622,8 @@ protected:
 /* end of 'src/paintbuffer.h' */
 
 
-/* including file 'src/layer.h', size 6885 */
-/* commit couldn't be retrieved            */
+/* including file 'src/layer.h', size 6885                                   */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPLayer : public QObject
 {
@@ -771,8 +771,8 @@ private:
 /* end of 'src/layer.h' */
 
 
-/* including file 'src/axis/range.h', size 5280 */
-/* commit couldn't be retrieved                 */
+/* including file 'src/axis/range.h', size 5280                              */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPRange
 {
@@ -889,8 +889,8 @@ inline const QCPRange operator/(const QCPRange& range, double value)
 /* end of 'src/axis/range.h' */
 
 
-/* including file 'src/selection.h', size 8569 */
-/* commit couldn't be retrieved                */
+/* including file 'src/selection.h', size 8569                               */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPDataRange
 {
@@ -1093,8 +1093,8 @@ inline QDebug operator<< (QDebug d, const QCPDataSelection &selection)
 /* end of 'src/selection.h' */
 
 
-/* including file 'src/selectionrect.h', size 3338 */
-/* commit couldn't be retrieved                    */
+/* including file 'src/selectionrect.h', size 3338                           */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPSelectionRect : public QCPLayerable
 {
@@ -1147,8 +1147,8 @@ protected:
 /* end of 'src/selectionrect.h' */
 
 
-/* including file 'src/layout.h', size 14224 */
-/* commit couldn't be retrieved              */
+/* including file 'src/layout.h', size 14224                                 */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPMarginGroup : public QObject
 {
@@ -1468,8 +1468,8 @@ Q_DECLARE_METATYPE(QCPLayoutInset::InsetPlacement)
 /* end of 'src/layout.h' */
 
 
-/* including file 'src/lineending.h', size 4426 */
-/* commit couldn't be retrieved                 */
+/* including file 'src/lineending.h', size 4426                              */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPLineEnding
 {
@@ -1532,8 +1532,8 @@ Q_DECLARE_METATYPE(QCPLineEnding::EndingStyle)
 /* end of 'src/lineending.h' */
 
 
-/* including file 'src/axis/axisticker.h', size 4224 */
-/* commit couldn't be retrieved                      */
+/* including file 'src/axis/axisticker.h', size 4224                         */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPAxisTicker
 {
@@ -1597,8 +1597,8 @@ Q_DECLARE_METATYPE(QSharedPointer<QCPAxisTicker>)
 /* end of 'src/axis/axisticker.h' */
 
 
-/* including file 'src/axis/axistickerdatetime.h', size 3289 */
-/* commit couldn't be retrieved                              */
+/* including file 'src/axis/axistickerdatetime.h', size 3289                 */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPAxisTickerDateTime : public QCPAxisTicker
 {
@@ -1638,8 +1638,8 @@ protected:
 /* end of 'src/axis/axistickerdatetime.h' */
 
 
-/* including file 'src/axis/axistickertime.h', size 3542 */
-/* commit couldn't be retrieved                          */
+/* including file 'src/axis/axistickertime.h', size 3542                     */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPAxisTickerTime : public QCPAxisTicker
 {
@@ -1690,8 +1690,8 @@ Q_DECLARE_METATYPE(QCPAxisTickerTime::TimeUnit)
 /* end of 'src/axis/axistickertime.h' */
 
 
-/* including file 'src/axis/axistickerfixed.h', size 3308 */
-/* commit couldn't be retrieved                           */
+/* including file 'src/axis/axistickerfixed.h', size 3308                    */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPAxisTickerFixed : public QCPAxisTicker
 {
@@ -1732,8 +1732,8 @@ Q_DECLARE_METATYPE(QCPAxisTickerFixed::ScaleStrategy)
 /* end of 'src/axis/axistickerfixed.h' */
 
 
-/* including file 'src/axis/axistickertext.h', size 3090 */
-/* commit couldn't be retrieved                          */
+/* including file 'src/axis/axistickertext.h', size 3090                     */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPAxisTickerText : public QCPAxisTicker
 {
@@ -1770,8 +1770,8 @@ protected:
 /* end of 'src/axis/axistickertext.h' */
 
 
-/* including file 'src/axis/axistickerpi.h', size 3911 */
-/* commit couldn't be retrieved                        */
+/* including file 'src/axis/axistickerpi.h', size 3911                       */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPAxisTickerPi : public QCPAxisTicker
 {
@@ -1829,8 +1829,8 @@ Q_DECLARE_METATYPE(QCPAxisTickerPi::FractionStyle)
 /* end of 'src/axis/axistickerpi.h' */
 
 
-/* including file 'src/axis/axistickerlog.h', size 2663 */
-/* commit couldn't be retrieved                         */
+/* including file 'src/axis/axistickerlog.h', size 2663                      */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPAxisTickerLog : public QCPAxisTicker
 {
@@ -1862,8 +1862,8 @@ protected:
 /* end of 'src/axis/axistickerlog.h' */
 
 
-/* including file 'src/axis/axis.h', size 20698 */
-/* commit couldn't be retrieved                 */
+/* including file 'src/axis/axis.h', size 20698                              */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPGrid :public QCPLayerable
 {
@@ -2290,8 +2290,8 @@ protected:
 /* end of 'src/axis/axis.h' */
 
 
-/* including file 'src/scatterstyle.h', size 7275 */
-/* commit couldn't be retrieved                   */
+/* including file 'src/scatterstyle.h', size 7275                            */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPScatterStyle
 {
@@ -2397,8 +2397,8 @@ Q_DECLARE_METATYPE(QCPScatterStyle::ScatterShape)
 /* end of 'src/scatterstyle.h' */
 
 
-/* including file 'src/datacontainer.h', size 4596 */
-/* commit couldn't be retrieved                    */
+/* including file 'src/datacontainer.h', size 4596                           */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 /*! \relates QCPDataContainer
   Returns whether the sort key of \a a is less than the sort key of \a b.
@@ -2470,8 +2470,8 @@ protected:
 
 // include implementation in header since it is a class template:
 
-/* including file 'src/datacontainer.cpp', size 31349 */
-/* commit couldn't be retrieved                       */
+/* including file 'src/datacontainer.cpp', size 31349                        */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPDataContainer
@@ -3245,8 +3245,8 @@ void QCPDataContainer<DataType>::performAutoSqueeze()
 /* end of 'src/datacontainer.h' */
 
 
-/* including file 'src/plottable.h', size 8433 */
-/* commit couldn't be retrieved                */
+/* including file 'src/plottable.h', size 8433                               */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPSelectionDecorator
 {
@@ -3402,8 +3402,8 @@ private:
 /* end of 'src/plottable.h' */
 
 
-/* including file 'src/item.h', size 9384 */
-/* commit couldn't be retrieved           */
+/* including file 'src/item.h', size 9384                                    */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPItemAnchor
 {
@@ -3587,8 +3587,8 @@ private:
 /* end of 'src/item.h' */
 
 
-/* including file 'src/core.h', size 14886 */
-/* commit couldn't be retrieved            */
+/* including file 'src/core.h', size 14886                                   */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCustomPlot : public QWidget
 {
@@ -3855,8 +3855,8 @@ Q_DECLARE_METATYPE(QCustomPlot::RefreshPriority)
 /* end of 'src/core.h' */
 
 
-/* including file 'src/plottable1d.h', size 4544 */
-/* commit couldn't be retrieved                  */
+/* including file 'src/plottable1d.h', size 4544                             */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCPPlottableInterface1D
 {
@@ -3915,8 +3915,8 @@ private:
 
 // include implementation in header since it is a class template:
 
-/* including file 'src/plottable1d.cpp', size 22361 */
-/* commit couldn't be retrieved                     */
+/* including file 'src/plottable1d.cpp', size 22361                          */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPPlottableInterface1D
@@ -4438,8 +4438,8 @@ void QCPAbstractPlottable1D<DataType>::drawPolyline(QCPPainter *painter, const Q
 /* end of 'src/plottable1d.h' */
 
 
-/* including file 'src/colorgradient.h', size 6243 */
-/* commit couldn't be retrieved                    */
+/* including file 'src/colorgradient.h', size 6243                           */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPColorGradient
 {
@@ -4521,8 +4521,8 @@ Q_DECLARE_METATYPE(QCPColorGradient::GradientPreset)
 /* end of 'src/colorgradient.h' */
 
 
-/* including file 'src/selectiondecorator-bracket.h', size 4442 */
-/* commit couldn't be retrieved                                 */
+/* including file 'src/selectiondecorator-bracket.h', size 4442              */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPSelectionDecoratorBracket : public QCPSelectionDecorator
 {
@@ -4590,8 +4590,8 @@ Q_DECLARE_METATYPE(QCPSelectionDecoratorBracket::BracketStyle)
 /* end of 'src/selectiondecorator-bracket.h' */
 
 
-/* including file 'src/layoutelements/layoutelement-axisrect.h', size 7507 */
-/* commit couldn't be retrieved                                            */
+/* including file 'src/layoutelements/layoutelement-axisrect.h', size 7507   */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPAxisRect : public QCPLayoutElement
 {
@@ -4716,8 +4716,8 @@ private:
 /* end of 'src/layoutelements/layoutelement-axisrect.h' */
 
 
-/* including file 'src/layoutelements/layoutelement-legend.h', size 10397 */
-/* commit couldn't be retrieved                                           */
+/* including file 'src/layoutelements/layoutelement-legend.h', size 10397    */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPAbstractLegendItem : public QCPLayoutElement
 {
@@ -4935,7 +4935,7 @@ Q_DECLARE_METATYPE(QCPLegend::SelectablePart)
 
 
 /* including file 'src/layoutelements/layoutelement-textelement.h', size 5353 */
-/* commit couldn't be retrieved                                               */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200  */
 
 class QCP_LIB_DECL QCPTextElement : public QCPLayoutElement
 {
@@ -5022,7 +5022,7 @@ private:
 
 
 /* including file 'src/layoutelements/layoutelement-colorscale.h', size 5923 */
-/* commit couldn't be retrieved                                              */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 
 class QCPColorScaleAxisRectPrivate : public QCPAxisRect
@@ -5129,8 +5129,8 @@ private:
 /* end of 'src/layoutelements/layoutelement-colorscale.h' */
 
 
-/* including file 'src/plottables/plottable-graph.h', size 9294 */
-/* commit couldn't be retrieved                                 */
+/* including file 'src/plottables/plottable-graph.h', size 9294              */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPGraphData
 {
@@ -5268,8 +5268,8 @@ Q_DECLARE_METATYPE(QCPGraph::LineStyle)
 /* end of 'src/plottables/plottable-graph.h' */
 
 
-/* including file 'src/plottables/plottable-curve.h', size 7409 */
-/* commit couldn't be retrieved                                 */
+/* including file 'src/plottables/plottable-curve.h', size 7409              */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPCurveData
 {
@@ -5383,8 +5383,8 @@ Q_DECLARE_METATYPE(QCPCurve::LineStyle)
 /* end of 'src/plottables/plottable-curve.h' */
 
 
-/* including file 'src/plottables/plottable-bars.h', size 8933 */
-/* commit couldn't be retrieved                                */
+/* including file 'src/plottables/plottable-bars.h', size 8933               */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPBarsGroup : public QObject
 {
@@ -5571,8 +5571,8 @@ Q_DECLARE_METATYPE(QCPBars::WidthType)
 /* end of 'src/plottables/plottable-bars.h' */
 
 
-/* including file 'src/plottables/plottable-statisticalbox.h', size 7516 */
-/* commit couldn't be retrieved                                          */
+/* including file 'src/plottables/plottable-statisticalbox.h', size 7516     */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPStatisticalBoxData
 {
@@ -5688,8 +5688,8 @@ protected:
 /* end of 'src/plottables/plottable-statisticalbox.h' */
 
 
-/* including file 'src/plottables/plottable-colormap.h', size 7070 */
-/* commit couldn't be retrieved                                    */
+/* including file 'src/plottables/plottable-colormap.h', size 7070           */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPColorMapData
 {
@@ -5824,8 +5824,8 @@ protected:
 /* end of 'src/plottables/plottable-colormap.h' */
 
 
-/* including file 'src/plottables/plottable-financial.h', size 8622 */
-/* commit couldn't be retrieved                                     */
+/* including file 'src/plottables/plottable-financial.h', size 8622          */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPFinancialData
 {
@@ -5963,8 +5963,8 @@ Q_DECLARE_METATYPE(QCPFinancial::ChartStyle)
 /* end of 'src/plottables/plottable-financial.h' */
 
 
-/* including file 'src/plottables/plottable-errorbar.h', size 7727 */
-/* commit couldn't be retrieved                                    */
+/* including file 'src/plottables/plottable-errorbar.h', size 7727           */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPErrorBarsData
 {
@@ -6088,8 +6088,8 @@ protected:
 /* end of 'src/plottables/plottable-errorbar.h' */
 
 
-/* including file 'src/items/item-straightline.h', size 3117 */
-/* commit couldn't be retrieved                              */
+/* including file 'src/items/item-straightline.h', size 3117                 */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPItemStraightLine : public QCPAbstractItem
 {
@@ -6131,8 +6131,8 @@ protected:
 /* end of 'src/items/item-straightline.h' */
 
 
-/* including file 'src/items/item-line.h', size 3407 */
-/* commit couldn't be retrieved                      */
+/* including file 'src/items/item-line.h', size 3407                         */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPItemLine : public QCPAbstractItem
 {
@@ -6181,8 +6181,8 @@ protected:
 /* end of 'src/items/item-line.h' */
 
 
-/* including file 'src/items/item-curve.h', size 3379 */
-/* commit couldn't be retrieved                       */
+/* including file 'src/items/item-curve.h', size 3379                        */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPItemCurve : public QCPAbstractItem
 {
@@ -6232,8 +6232,8 @@ protected:
 /* end of 'src/items/item-curve.h' */
 
 
-/* including file 'src/items/item-rect.h', size 3688 */
-/* commit couldn't be retrieved                      */
+/* including file 'src/items/item-rect.h', size 3688                         */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPItemRect : public QCPAbstractItem
 {
@@ -6291,8 +6291,8 @@ protected:
 /* end of 'src/items/item-rect.h' */
 
 
-/* including file 'src/items/item-text.h', size 5554 */
-/* commit couldn't be retrieved                      */
+/* including file 'src/items/item-text.h', size 5554                         */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPItemText : public QCPAbstractItem
 {
@@ -6388,8 +6388,8 @@ protected:
 /* end of 'src/items/item-text.h' */
 
 
-/* including file 'src/items/item-ellipse.h', size 3868 */
-/* commit couldn't be retrieved                         */
+/* including file 'src/items/item-ellipse.h', size 3868                      */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPItemEllipse : public QCPAbstractItem
 {
@@ -6450,8 +6450,8 @@ protected:
 /* end of 'src/items/item-ellipse.h' */
 
 
-/* including file 'src/items/item-pixmap.h', size 4373 */
-/* commit couldn't be retrieved                        */
+/* including file 'src/items/item-pixmap.h', size 4373                       */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPItemPixmap : public QCPAbstractItem
 {
@@ -6519,8 +6519,8 @@ protected:
 /* end of 'src/items/item-pixmap.h' */
 
 
-/* including file 'src/items/item-tracer.h', size 4762 */
-/* commit couldn't be retrieved                        */
+/* including file 'src/items/item-tracer.h', size 4762                       */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPItemTracer : public QCPAbstractItem
 {
@@ -6605,8 +6605,8 @@ Q_DECLARE_METATYPE(QCPItemTracer::TracerStyle)
 /* end of 'src/items/item-tracer.h' */
 
 
-/* including file 'src/items/item-bracket.h', size 3969 */
-/* commit couldn't be retrieved                         */
+/* including file 'src/items/item-bracket.h', size 3969                      */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 class QCP_LIB_DECL QCPItemBracket : public QCPAbstractItem
 {

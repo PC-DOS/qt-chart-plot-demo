@@ -44,6 +44,7 @@ void MainWindow::tmrDataGenerationTimer_Tick(){
         gpdDataPoint.value=arrData[i];
         mData->append(gpdDataPoint);
     }
+    //ui->chrtData->graph(0)->setData(arrXAxis,datUltrasoud->GeneratePlotForTesting(),true);
     ui->chrtData->replot(QCustomPlot::rpQueuedReplot);
 #ifdef TIMER_PERFORMANCE_TESTING
     ++iCurrentFrames;

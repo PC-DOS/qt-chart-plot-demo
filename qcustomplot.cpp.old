@@ -26,8 +26,8 @@
 #include "qcustomplot.h"
 
 
-/* including file 'src/vector2d.cpp', size 7340 */
-/* commit couldn't be retrieved                 */
+/* including file 'src/vector2d.cpp', size 7340                              */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPVector2D
@@ -259,8 +259,8 @@ QCPVector2D &QCPVector2D::operator-=(const QCPVector2D &vector)
 /* end of 'src/vector2d.cpp' */
 
 
-/* including file 'src/painter.cpp', size 8670 */
-/* commit couldn't be retrieved                */
+/* including file 'src/painter.cpp', size 8670                               */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPPainter
@@ -477,8 +477,8 @@ void QCPPainter::makeNonCosmetic()
 /* end of 'src/painter.cpp' */
 
 
-/* including file 'src/paintbuffer.cpp', size 18502 */
-/* commit couldn't be retrieved                     */
+/* including file 'src/paintbuffer.cpp', size 18502                          */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPAbstractPaintBuffer
@@ -950,8 +950,8 @@ void QCPPaintBufferGlFbo::reallocateBuffer()
 /* end of 'src/paintbuffer.cpp' */
 
 
-/* including file 'src/layer.cpp', size 37304 */
-/* commit couldn't be retrieved               */
+/* including file 'src/layer.cpp', size 37304                                */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPLayer
@@ -1807,8 +1807,8 @@ void QCPLayerable::wheelEvent(QWheelEvent *event)
 /* end of 'src/layer.cpp' */
 
 
-/* including file 'src/axis/range.cpp', size 12221 */
-/* commit couldn't be retrieved                    */
+/* including file 'src/axis/range.cpp', size 12221                           */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPRange
@@ -2129,8 +2129,8 @@ bool QCPRange::validRange(const QCPRange &range)
 /* end of 'src/axis/range.cpp' */
 
 
-/* including file 'src/selection.cpp', size 21941 */
-/* commit couldn't be retrieved                   */
+/* including file 'src/selection.cpp', size 21941                            */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPDataRange
@@ -2731,8 +2731,8 @@ QCPDataSelection QCPDataSelection::inverse(const QCPDataRange &outerRange) const
 /* end of 'src/selection.cpp' */
 
 
-/* including file 'src/selectionrect.cpp', size 9224 */
-/* commit couldn't be retrieved                      */
+/* including file 'src/selectionrect.cpp', size 9224                         */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPSelectionRect
@@ -2960,8 +2960,8 @@ void QCPSelectionRect::draw(QCPPainter *painter)
 /* end of 'src/selectionrect.cpp' */
 
 
-/* including file 'src/layout.cpp', size 79139 */
-/* commit couldn't be retrieved                */
+/* including file 'src/layout.cpp', size 79139                               */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPMarginGroup
@@ -5131,8 +5131,8 @@ void QCPLayoutInset::addElement(QCPLayoutElement *element, const QRectF &rect)
 /* end of 'src/layout.cpp' */
 
 
-/* including file 'src/lineending.cpp', size 11536 */
-/* commit couldn't be retrieved                    */
+/* including file 'src/lineending.cpp', size 11536                           */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPLineEnding
@@ -5430,8 +5430,8 @@ void QCPLineEnding::draw(QCPPainter *painter, const QCPVector2D &pos, double ang
 /* end of 'src/lineending.cpp' */
 
 
-/* including file 'src/axis/axisticker.cpp', size 18664 */
-/* commit couldn't be retrieved                         */
+/* including file 'src/axis/axisticker.cpp', size 18664                      */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPAxisTicker
@@ -5850,8 +5850,8 @@ double QCPAxisTicker::cleanMantissa(double input) const
 /* end of 'src/axis/axisticker.cpp' */
 
 
-/* including file 'src/axis/axistickerdatetime.cpp', size 14443 */
-/* commit couldn't be retrieved                                 */
+/* including file 'src/axis/axistickerdatetime.cpp', size 14443              */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPAxisTickerDateTime
@@ -6147,8 +6147,8 @@ double QCPAxisTickerDateTime::dateTimeToKey(const QDate date)
 /* end of 'src/axis/axistickerdatetime.cpp' */
 
 
-/* including file 'src/axis/axistickertime.cpp', size 11747 */
-/* commit couldn't be retrieved                             */
+/* including file 'src/axis/axistickertime.cpp', size 11747                  */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPAxisTickerTime
@@ -6396,8 +6396,8 @@ void QCPAxisTickerTime::replaceUnit(QString &text, QCPAxisTickerTime::TimeUnit u
 /* end of 'src/axis/axistickertime.cpp' */
 
 
-/* including file 'src/axis/axistickerfixed.cpp', size 5583 */
-/* commit couldn't be retrieved                             */
+/* including file 'src/axis/axistickerfixed.cpp', size 5583                  */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPAxisTickerFixed
@@ -6498,8 +6498,8 @@ double QCPAxisTickerFixed::getTickStep(const QCPRange &range)
 /* end of 'src/axis/axistickerfixed.cpp' */
 
 
-/* including file 'src/axis/axistickertext.cpp', size 8661 */
-/* commit couldn't be retrieved                            */
+/* including file 'src/axis/axistickertext.cpp', size 8661                   */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPAxisTickerText
@@ -6711,8 +6711,8 @@ QVector<double> QCPAxisTickerText::createTickVector(double tickStep, const QCPRa
 /* end of 'src/axis/axistickertext.cpp' */
 
 
-/* including file 'src/axis/axistickerpi.cpp', size 11170 */
-/* commit couldn't be retrieved                           */
+/* including file 'src/axis/axistickerpi.cpp', size 11170                    */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPAxisTickerPi
@@ -6998,8 +6998,8 @@ QString QCPAxisTickerPi::unicodeSubscript(int number) const
 /* end of 'src/axis/axistickerpi.cpp' */
 
 
-/* including file 'src/axis/axistickerlog.cpp', size 7106 */
-/* commit couldn't be retrieved                           */
+/* including file 'src/axis/axistickerlog.cpp', size 7106                    */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPAxisTickerLog
@@ -7139,8 +7139,8 @@ QVector<double> QCPAxisTickerLog::createTickVector(double tickStep, const QCPRan
 /* end of 'src/axis/axistickerlog.cpp' */
 
 
-/* including file 'src/axis/axis.cpp', size 99515 */
-/* commit couldn't be retrieved                   */
+/* including file 'src/axis/axis.cpp', size 99515                            */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -9829,8 +9829,8 @@ void QCPAxisPainterPrivate::getMaxTickLabelSize(const QFont &font, const QString
 /* end of 'src/axis/axis.cpp' */
 
 
-/* including file 'src/scatterstyle.cpp', size 17450 */
-/* commit couldn't be retrieved                      */
+/* including file 'src/scatterstyle.cpp', size 17450                         */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPScatterStyle
@@ -10303,8 +10303,8 @@ void QCPScatterStyle::drawShape(QCPPainter *painter, double x, double y) const
 
 //amalgamation: add datacontainer.cpp
 
-/* including file 'src/plottable.cpp', size 38845 */
-/* commit couldn't be retrieved                   */
+/* including file 'src/plottable.cpp', size 38845                            */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPSelectionDecorator
@@ -11276,8 +11276,8 @@ void QCPAbstractPlottable::deselectEvent(bool *selectionStateChanged)
 /* end of 'src/plottable.cpp' */
 
 
-/* including file 'src/item.cpp', size 49271 */
-/* commit couldn't be retrieved              */
+/* including file 'src/item.cpp', size 49271                                 */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPItemAnchor
@@ -12547,8 +12547,8 @@ QCP::Interaction QCPAbstractItem::selectionCategory() const
 /* end of 'src/item.cpp' */
 
 
-/* including file 'src/core.cpp', size 126207 */
-/* commit couldn't be retrieved               */
+/* including file 'src/core.cpp', size 126207                                */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCustomPlot
@@ -15745,8 +15745,8 @@ void QCustomPlot::toPainter(QCPPainter *painter, int width, int height)
 
 //amalgamation: add plottable1d.cpp
 
-/* including file 'src/colorgradient.cpp', size 25342 */
-/* commit couldn't be retrieved                       */
+/* including file 'src/colorgradient.cpp', size 25342                        */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -16397,8 +16397,8 @@ void QCPColorGradient::updateColorBuffer()
 /* end of 'src/colorgradient.cpp' */
 
 
-/* including file 'src/selectiondecorator-bracket.cpp', size 12313 */
-/* commit couldn't be retrieved                                    */
+/* including file 'src/selectiondecorator-bracket.cpp', size 12313           */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPSelectionDecoratorBracket
@@ -16684,7 +16684,7 @@ QPointF QCPSelectionDecoratorBracket::getPixelCoordinates(const QCPPlottableInte
 
 
 /* including file 'src/layoutelements/layoutelement-axisrect.cpp', size 47584 */
-/* commit couldn't be retrieved                                               */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200  */
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -17958,8 +17958,8 @@ void QCPAxisRect::wheelEvent(QWheelEvent *event)
 /* end of 'src/layoutelements/layoutelement-axisrect.cpp' */
 
 
-/* including file 'src/layoutelements/layoutelement-legend.cpp', size 31153 */
-/* commit couldn't be retrieved                                             */
+/* including file 'src/layoutelements/layoutelement-legend.cpp', size 31153  */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPAbstractLegendItem
@@ -18875,7 +18875,7 @@ void QCPLegend::parentPlotInitialized(QCustomPlot *parentPlot)
 
 
 /* including file 'src/layoutelements/layoutelement-textelement.cpp', size 12761 */
-/* commit couldn't be retrieved                                                  */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200     */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPTextElement
@@ -19279,7 +19279,7 @@ QColor QCPTextElement::mainTextColor() const
 
 
 /* including file 'src/layoutelements/layoutelement-colorscale.cpp', size 26246 */
-/* commit couldn't be retrieved                                                 */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200    */
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -19947,8 +19947,8 @@ void QCPColorScaleAxisRectPrivate::axisSelectableChanged(QCPAxis::SelectablePart
 /* end of 'src/layoutelements/layoutelement-colorscale.cpp' */
 
 
-/* including file 'src/plottables/plottable-graph.cpp', size 74194 */
-/* commit couldn't be retrieved                                    */
+/* including file 'src/plottables/plottable-graph.cpp', size 74194           */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPGraphData
@@ -21702,8 +21702,8 @@ int QCPGraph::findIndexBelowY(const QVector<QPointF> *data, double y) const
 /* end of 'src/plottables/plottable-graph.cpp' */
 
 
-/* including file 'src/plottables/plottable-curve.cpp', size 63742 */
-/* commit couldn't be retrieved                                    */
+/* including file 'src/plottables/plottable-curve.cpp', size 63742           */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPCurveData
@@ -23158,8 +23158,8 @@ double QCPCurve::pointDistance(const QPointF &pixelPoint, QCPCurveDataContainer:
 /* end of 'src/plottables/plottable-curve.cpp' */
 
 
-/* including file 'src/plottables/plottable-bars.cpp', size 43725 */
-/* commit couldn't be retrieved                                   */
+/* including file 'src/plottables/plottable-bars.cpp', size 43725            */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -24333,8 +24333,8 @@ void QCPBars::connectBars(QCPBars *lower, QCPBars *upper)
 /* end of 'src/plottables/plottable-bars.cpp' */
 
 
-/* including file 'src/plottables/plottable-statisticalbox.cpp', size 28837 */
-/* commit couldn't be retrieved                                             */
+/* including file 'src/plottables/plottable-statisticalbox.cpp', size 28837  */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPStatisticalBoxData
@@ -24994,8 +24994,8 @@ QVector<QLineF> QCPStatisticalBox::getWhiskerBarLines(QCPStatisticalBoxDataConta
 /* end of 'src/plottables/plottable-statisticalbox.cpp' */
 
 
-/* including file 'src/plottables/plottable-colormap.cpp', size 47881 */
-/* commit couldn't be retrieved                                       */
+/* including file 'src/plottables/plottable-colormap.cpp', size 47881        */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPColorMapData
@@ -26129,8 +26129,8 @@ void QCPColorMap::drawLegendIcon(QCPPainter *painter, const QRectF &rect) const
 /* end of 'src/plottables/plottable-colormap.cpp' */
 
 
-/* including file 'src/plottables/plottable-financial.cpp', size 42827 */
-/* commit couldn't be retrieved                                        */
+/* including file 'src/plottables/plottable-financial.cpp', size 42827       */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPFinancialData
@@ -27091,8 +27091,8 @@ QRectF QCPFinancial::selectionHitBox(QCPFinancialDataContainer::const_iterator i
 /* end of 'src/plottables/plottable-financial.cpp' */
 
 
-/* including file 'src/plottables/plottable-errorbar.cpp', size 37570 */
-/* commit couldn't be retrieved                                       */
+/* including file 'src/plottables/plottable-errorbar.cpp', size 37570        */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPErrorBarsData
@@ -28059,8 +28059,8 @@ bool QCPErrorBars::rectIntersectsLine(const QRectF &pixelRect, const QLineF &lin
 /* end of 'src/plottables/plottable-errorbar.cpp' */
 
 
-/* including file 'src/items/item-straightline.cpp', size 7592 */
-/* commit couldn't be retrieved                                */
+/* including file 'src/items/item-straightline.cpp', size 7592               */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPItemStraightLine
@@ -28240,8 +28240,8 @@ QPen QCPItemStraightLine::mainPen() const
 /* end of 'src/items/item-straightline.cpp' */
 
 
-/* including file 'src/items/item-line.cpp', size 8498 */
-/* commit couldn't be retrieved                        */
+/* including file 'src/items/item-line.cpp', size 8498                       */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPItemLine
@@ -28471,8 +28471,8 @@ QPen QCPItemLine::mainPen() const
 /* end of 'src/items/item-line.cpp' */
 
 
-/* including file 'src/items/item-curve.cpp', size 7248 */
-/* commit couldn't be retrieved                         */
+/* including file 'src/items/item-curve.cpp', size 7248                      */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPItemCurve
@@ -28639,8 +28639,8 @@ QPen QCPItemCurve::mainPen() const
 /* end of 'src/items/item-curve.cpp' */
 
 
-/* including file 'src/items/item-rect.cpp', size 6479 */
-/* commit couldn't be retrieved                        */
+/* including file 'src/items/item-rect.cpp', size 6479                       */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPItemRect
@@ -28796,8 +28796,8 @@ QBrush QCPItemRect::mainBrush() const
 /* end of 'src/items/item-rect.cpp' */
 
 
-/* including file 'src/items/item-text.cpp', size 13338 */
-/* commit couldn't be retrieved                         */
+/* including file 'src/items/item-text.cpp', size 13338                      */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPItemText
@@ -29144,8 +29144,8 @@ QBrush QCPItemText::mainBrush() const
 /* end of 'src/items/item-text.cpp' */
 
 
-/* including file 'src/items/item-ellipse.cpp', size 7863 */
-/* commit couldn't be retrieved                           */
+/* including file 'src/items/item-ellipse.cpp', size 7863                    */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPItemEllipse
@@ -29332,8 +29332,8 @@ QBrush QCPItemEllipse::mainBrush() const
 /* end of 'src/items/item-ellipse.cpp' */
 
 
-/* including file 'src/items/item-pixmap.cpp', size 10615 */
-/* commit couldn't be retrieved                           */
+/* including file 'src/items/item-pixmap.cpp', size 10615                    */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPItemPixmap
@@ -29602,8 +29602,8 @@ QPen QCPItemPixmap::mainPen() const
 /* end of 'src/items/item-pixmap.cpp' */
 
 
-/* including file 'src/items/item-tracer.cpp', size 14624 */
-/* commit couldn't be retrieved                           */
+/* including file 'src/items/item-tracer.cpp', size 14624                    */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPItemTracer
@@ -29972,8 +29972,8 @@ QBrush QCPItemTracer::mainBrush() const
 /* end of 'src/items/item-tracer.cpp' */
 
 
-/* including file 'src/items/item-bracket.cpp', size 10687 */
-/* commit couldn't be retrieved                            */
+/* including file 'src/items/item-bracket.cpp', size 10687                   */
+/* commit ce344b3f96a62e5f652585e55f1ae7c7883cd45b 2018-06-25 01:03:39 +0200 */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// QCPItemBracket
