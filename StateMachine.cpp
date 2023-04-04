@@ -5,7 +5,7 @@ using namespace std;
 
 StateMachine::StateMachine(){
     cerr<<"StateMachine: Initialized, current state 0 (SM_STATE_NOTMAL)"<<endl;
-    _iCurrentState=SM_STATE_NOTMAL;
+    iCurrentState=SM_STATE_NOTMAL;
 }
 
 StateMachine::~StateMachine(){
@@ -18,10 +18,10 @@ void StateMachine::SetCurrentState(int iNewState){
         return;
     }
     cerr<<"StateMachine: Entering state "<<iNewState<<"."<<endl;
-    _iCurrentState=iNewState;
+    iCurrentState=iNewState;
     return;
 }
 
 int StateMachine::GetCurrentState(){
-    return _iCurrentState;
+    return iCurrentState;
 }

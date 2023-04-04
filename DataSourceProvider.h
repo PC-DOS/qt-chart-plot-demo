@@ -14,12 +14,12 @@
 
 class DataSourceProvider{
 private:
-    int _iCurrentSamplingRate;
-    double _dCurrentGain; //In multiples, to generate value in dB, use: dB = 20lg(Multiples)
-    int _iCurrentDisplayTimespan;
-    int _iPointsPerPlot;
+    int iCurrentSamplingRate;
+    double dCurrentGain; //In multiples, to generate value in dB, use: dB = 20lg(Multiples)
+    int iCurrentDisplayTimespan;
+    int iPointsPerPlot;
 
-    QVector<double> _arrData;
+    QVector<double> arrData;
 
 public:
     DataSourceProvider();
@@ -39,10 +39,10 @@ public:
     int GetCurrentDisplayTimespan();
     int GetCurrentPointsPerPlot();
 
-    QString SamplingRateToString(bool IsUnitTranslationEnabled=true);
-    QString SamplingRateToString(int iSamplingRateInHz, bool IsUnitTranslationEnabled=true);
-    QString GainToString(bool IsDbEnabled=true, bool IsDbOnly=false);
-    QString GainToString(double dGainInMultiple, bool IsDbEnabled=true, bool IsDbOnly=false);
+    QString SamplingRateToString(bool bIsUnitTranslationEnabled=true);
+    QString SamplingRateToString(int iSamplingRateInHz, bool bIsUnitTranslationEnabled=true);
+    QString GainToString(bool bIsDbEnabled=true, bool bIsDbOnly=false);
+    QString GainToString(double dGainInMultiple, bool bIsDbEnabled=true, bool bIsDbOnly=false);
     QString DisplayTimespanToString();
     QString DisplayTimespanToString(int iDisplayTimespanInMillisecond);
 

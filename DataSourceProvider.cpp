@@ -12,10 +12,10 @@ DataSourceProvider::DataSourceProvider(){
         <<", Timespan="<<qPrintable(DisplayTimespanToString(DATA_DEFAULT_DISPLAY_TIME_SPAN))
         <<", Gain="<<qPrintable(GainToString(double(DATA_DEFAULT_GAIN),true,false))<<"."
         <<endl;
-    _iCurrentSamplingRate=DATA_DEFAULT_SAMPLING_RATE;
-    _dCurrentGain=DATA_DEFAULT_GAIN;
-    _iCurrentDisplayTimespan=DATA_DEFAULT_DISPLAY_TIME_SPAN;
-    _iPointsPerPlot=(double(_iCurrentDisplayTimespan)/double(1000))*_iCurrentSamplingRate;
+    iCurrentSamplingRate=DATA_DEFAULT_SAMPLING_RATE;
+    dCurrentGain=DATA_DEFAULT_GAIN;
+    iCurrentDisplayTimespan=DATA_DEFAULT_DISPLAY_TIME_SPAN;
+    iPointsPerPlot=(double(iCurrentDisplayTimespan)/double(1000))*iCurrentSamplingRate;
     //TODO: Drivers
 }
 
@@ -33,10 +33,10 @@ DataSourceProvider::DataSourceProvider(int iSamplingRateInHz, double dGainInMult
         cerr<<"DataSourceProvider: Invalid display timespan, using default value "<<qPrintable(DisplayTimespanToString(DATA_DEFAULT_DISPLAY_TIME_SPAN))<<"."<<endl;
         iDisplayTimespanInMillisecond=DATA_DEFAULT_DISPLAY_TIME_SPAN;
     }
-    _iCurrentSamplingRate=iSamplingRateInHz;
-    _dCurrentGain=dGainInMultiple;
-    _iCurrentDisplayTimespan=iDisplayTimespanInMillisecond;
-    _iPointsPerPlot=(double(_iCurrentDisplayTimespan)/double(1000))*_iCurrentSamplingRate;
+    iCurrentSamplingRate=iSamplingRateInHz;
+    dCurrentGain=dGainInMultiple;
+    iCurrentDisplayTimespan=iDisplayTimespanInMillisecond;
+    iPointsPerPlot=(double(iCurrentDisplayTimespan)/double(1000))*iCurrentSamplingRate;
     //TODO: Drivers
 }
 
@@ -61,12 +61,12 @@ void DataSourceProvider::SetCurrentSamplingRate(int iSamplingRateInHz){
         cerr<<"DataSourceProvider: Invalid sampling rate, using default value 100 Hz."<<endl;
         iSamplingRateInHz=100;
     }
-    _iCurrentSamplingRate=iSamplingRateInHz;
-    _iPointsPerPlot=(double(_iCurrentDisplayTimespan)/double(1000))*_iCurrentSamplingRate;
+    iCurrentSamplingRate=iSamplingRateInHz;
+    iPointsPerPlot=(double(iCurrentDisplayTimespan)/double(1000))*iCurrentSamplingRate;
 }
 
 int DataSourceProvider::GetCurrentSamlingRate(){
-    return _iCurrentSamplingRate;
+    return iCurrentSamplingRate;
 }
 
 void DataSourceProvider::SetCurrentGainInMultiple(double dGainInMultiple){
@@ -74,19 +74,19 @@ void DataSourceProvider::SetCurrentGainInMultiple(double dGainInMultiple){
         cerr<<"DataSourceProvider: Invalid gain, using default value 6.02 dB (x2)."<<endl;
         dGainInMultiple=2;
     }
-    _dCurrentGain=dGainInMultiple;
+    dCurrentGain=dGainInMultiple;
 }
 
 double DataSourceProvider::GetCurrentGainInMultiple(){
-    return _dCurrentGain;
+    return dCurrentGain;
 }
 
 void DataSourceProvider::SetCurrentGainInDb(double dGainInDb){
-    _dCurrentGain=DbToMultiple(dGainInDb);
+    dCurrentGain=DbToMultiple(dGainInDb);
 }
 
 double DataSourceProvider::GetCurrentGainInDb(){
-    return MultipleToDb(_dCurrentGain);
+    return MultipleToDb(dCurrentGain);
 }
 
 void DataSourceProvider::SetCurrentDisplayTimespan(int iDisplayTimespanInMillisecond){
@@ -94,41 +94,41 @@ void DataSourceProvider::SetCurrentDisplayTimespan(int iDisplayTimespanInMillise
         cerr<<"DataSourceProvider: Invalid display timespan, using default value 1000 ms."<<endl;
         iDisplayTimespanInMillisecond=1000;
     }
-    _iCurrentDisplayTimespan=iDisplayTimespanInMillisecond;
-    _iPointsPerPlot=(double(_iCurrentDisplayTimespan)/double(1000))*_iCurrentSamplingRate;
+    iCurrentDisplayTimespan=iDisplayTimespanInMillisecond;
+    iPointsPerPlot=(double(iCurrentDisplayTimespan)/double(1000))*iCurrentSamplingRate;
 }
 
 int DataSourceProvider::GetCurrentDisplayTimespan(){
-    return _iCurrentDisplayTimespan;
+    return iCurrentDisplayTimespan;
 }
 
 int DataSourceProvider::GetCurrentPointsPerPlot(){
-    return _iPointsPerPlot;
+    return iPointsPerPlot;
 }
 
-QString DataSourceProvider::SamplingRateToString(bool IsUnitTranslationEnabled){
-    if (IsUnitTranslationEnabled){
-        if (_iCurrentSamplingRate>=UNIT_G){
-            return QString::number(double(_iCurrentSamplingRate)/double(UNIT_G),'g',5)+QString(" GHz");
+QString DataSourceProvider::SamplingRateToString(bool bIsUnitTranslationEnabled){
+    if (bIsUnitTranslationEnabled){
+        if (iCurrentSamplingRate>=UNIT_G){
+            return QString::number(double(iCurrentSamplingRate)/double(UNIT_G),'g',5)+QString(" GHz");
         }
-        else if (_iCurrentSamplingRate>=UNIT_M){
-            return QString::number(double(_iCurrentSamplingRate)/double(UNIT_M),'g',5)+QString(" MHz");
+        else if (iCurrentSamplingRate>=UNIT_M){
+            return QString::number(double(iCurrentSamplingRate)/double(UNIT_M),'g',5)+QString(" MHz");
         }
-        else if (_iCurrentSamplingRate>=UNIT_K){
-            return QString::number(double(_iCurrentSamplingRate)/double(UNIT_K),'g',5)+QString(" kHz");
+        else if (iCurrentSamplingRate>=UNIT_K){
+            return QString::number(double(iCurrentSamplingRate)/double(UNIT_K),'g',5)+QString(" kHz");
         }
         else{
-            return QString::number(_iCurrentSamplingRate)+QString(" Hz");
+            return QString::number(iCurrentSamplingRate)+QString(" Hz");
         }
     }
     else{
-        return QString::number(_iCurrentSamplingRate)+QString(" Hz");
+        return QString::number(iCurrentSamplingRate)+QString(" Hz");
     }
 }
 
-QString DataSourceProvider::SamplingRateToString(int iSamplingRateInHz, bool IsUnitTranslationEnabled){
+QString DataSourceProvider::SamplingRateToString(int iSamplingRateInHz, bool bIsUnitTranslationEnabled){
     iSamplingRateInHz=abs(iSamplingRateInHz);
-    if (IsUnitTranslationEnabled){
+    if (bIsUnitTranslationEnabled){
         if (iSamplingRateInHz>=UNIT_G){
             return QString::number(double(iSamplingRateInHz)/double(UNIT_G),'g',5)+QString(" GHz");
         }
@@ -147,26 +147,26 @@ QString DataSourceProvider::SamplingRateToString(int iSamplingRateInHz, bool IsU
     }
 }
 
-QString DataSourceProvider::GainToString(bool IsDbEnabled, bool IsDbOnly){
-    if (IsDbOnly){
-        return QString::number(DataSourceProvider::MultipleToDb(_dCurrentGain),'g',4)+QString(" dB");
+QString DataSourceProvider::GainToString(bool bIsDbEnabled, bool bIsDbOnly){
+    if (bIsDbOnly){
+        return QString::number(DataSourceProvider::MultipleToDb(dCurrentGain),'g',4)+QString(" dB");
     }
-    if (IsDbEnabled){
-        return QString("x")+QString::number(_dCurrentGain,'g',2)+QString(" (")+QString::number(DataSourceProvider::MultipleToDb(_dCurrentGain),'g',4)+QString(" dB)");
+    if (bIsDbEnabled){
+        return QString("x")+QString::number(dCurrentGain,'g',2)+QString(" (")+QString::number(DataSourceProvider::MultipleToDb(dCurrentGain),'g',4)+QString(" dB)");
     }
     else{
-        return QString("x")+QString::number(_dCurrentGain,'g',2);
+        return QString("x")+QString::number(dCurrentGain,'g',2);
     }
 }
 
-QString DataSourceProvider::GainToString(double dGainInMultiple, bool IsDbEnabled, bool IsDbOnly){
+QString DataSourceProvider::GainToString(double dGainInMultiple, bool bIsDbEnabled, bool bIsDbOnly){
     if (dGainInMultiple<=0){
         return QString("x0");
     }
-    if (IsDbOnly){
+    if (bIsDbOnly){
         return QString::number(DataSourceProvider::MultipleToDb(dGainInMultiple),'g',4)+QString(" dB");
     }
-    if (IsDbEnabled){
+    if (bIsDbEnabled){
         return QString("x")+QString::number(dGainInMultiple,'g',2)+QString(" (")+QString::number(DataSourceProvider::MultipleToDb(dGainInMultiple),'g',4)+QString(" dB)");
     }
     else{
@@ -175,7 +175,7 @@ QString DataSourceProvider::GainToString(double dGainInMultiple, bool IsDbEnable
 }
 
 QString DataSourceProvider::DisplayTimespanToString(){
-    return QString::number(_iCurrentDisplayTimespan)+QString(" ms");
+    return QString::number(iCurrentDisplayTimespan)+QString(" ms");
 }
 
 QString DataSourceProvider::DisplayTimespanToString(int iDisplayTimespanInMillisecond){
@@ -183,9 +183,9 @@ QString DataSourceProvider::DisplayTimespanToString(int iDisplayTimespanInMillis
 }
 
 const QVector<double> & DataSourceProvider::GeneratePlotForTesting(){
-    _arrData.clear();
-    for (int i=1; i<=_iPointsPerPlot;++i){
-        _arrData.push_back((double(rand())/double(__INT_MAX__)+2.5*sin(5.0*3.1415926*i/_iPointsPerPlot)+5)*_dCurrentGain);
+    arrData.clear();
+    for (int i=1; i<=iPointsPerPlot;++i){
+        arrData.push_back((double(rand())/double(__INT_MAX__)+2.5*sin(5.0*3.1415926*i/iPointsPerPlot)+5)*dCurrentGain);
     }
-    return _arrData;
+    return arrData;
 }
