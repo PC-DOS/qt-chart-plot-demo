@@ -1,47 +1,47 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include "StateMachine.h"
 #include "DataSourceProvider.h"
-#include <QVector>
+#include "StateMachine.h"
+#include "ui_mainwindow.h"
 #include <QString>
 #include <QStringBuilder>
 #include <QTimer>
+#include <QVector>
 #include <math.h>
 
 DataSourceProvider * datUltrasoud;
 StateMachine * smCurrentState;
-QTimer *tmrDataGenerationTimer;
+QTimer * tmrDataGenerationTimer;
 
 QVector<double> arrXAxis;
 
 #ifdef TIMER_PERFORMANCE_TESTING
-QTimer *tmrFrameCounter;
-unsigned long long iTotalFrames=0;
-unsigned int iCurrentFrames=0;
-unsigned int iFps=1;
+QTimer * tmrFrameCounter;
+unsigned long long iTotalFrames = 0;
+unsigned int iCurrentFrames = 0;
+unsigned int iFps = 1;
 #endif
 
-void MainWindow::RegenerateXAxisData(){
+void MainWindow::RegenerateXAxisData() {
     arrXAxis.clear();
-    for (int i=0; i<datUltrasoud->GetCurrentPointsPerPlot();++i){
-        arrXAxis.push_back(double(i)*double(1000)/double(datUltrasoud->GetCurrentSamlingRate()));
+    for (int i = 0; i < datUltrasoud->GetCurrentPointsPerPlot(); ++i) {
+        arrXAxis.push_back(double(i) * double(1000) / double(datUltrasoud->GetCurrentSamlingRate()));
     }
 }
 
-void MainWindow::UpdateAxisData(){
-    ui->chrtData->xAxis->setRange(0,datUltrasoud->GetCurrentDisplayTimespan());
-    ui->chrtData->yAxis->setRange(0,50);
+void MainWindow::UpdateAxisData() {
+    ui->chrtData->xAxis->setRange(0, datUltrasoud->GetCurrentDisplayTimespan());
+    ui->chrtData->yAxis->setRange(0, 50);
 }
 
-void MainWindow::tmrDataGenerationTimer_Tick(){
-    QVector<double> arrData=datUltrasoud->GeneratePlotForTesting();
-    QVector<QCPGraphData> *mData;
+void MainWindow::tmrDataGenerationTimer_Tick() {
+    QVector<double> arrData = datUltrasoud->GeneratePlotForTesting();
+    QVector<QCPGraphData> * mData;
     mData = ui->chrtData->graph(0)->data()->coreData();
     mData->clear();
     QCPGraphData gpdDataPoint;
-    for (int i=0; i<datUltrasoud->GetCurrentPointsPerPlot(); ++i){
-        gpdDataPoint.key=arrXAxis[i];
-        gpdDataPoint.value=arrData[i];
+    for (int i = 0; i < datUltrasoud->GetCurrentPointsPerPlot(); ++i) {
+        gpdDataPoint.key = arrXAxis[i];
+        gpdDataPoint.value = arrData[i];
         mData->append(gpdDataPoint);
     }
     //ui->chrtData->graph(0)->setData(arrXAxis,datUltrasoud->GeneratePlotForTesting(),true);
@@ -59,15 +59,15 @@ void MainWindow::tmrDataGenerationTimer_Tick(){
 }
 
 #ifdef TIMER_PERFORMANCE_TESTING
-void MainWindow::tmrFrameCounter_Tick(){
-    iFps=iCurrentFrames;
-    iCurrentFrames=0;
+void MainWindow::tmrFrameCounter_Tick() {
+    iFps = iCurrentFrames;
+    iCurrentFrames = 0;
     //ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
-    ui->lblCounter->setText(QString::number(iFps)+QString(" fps"));
+    ui->lblCounter->setText(QString::number(iFps) + QString(" fps"));
     return;
 }
 
-void MainWindow::chrtData_afterReplot(){
+void MainWindow::chrtData_afterReplot() {
     //++iCurrentFrames;
     //++iTotalFrames;
     //ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
@@ -75,18 +75,16 @@ void MainWindow::chrtData_afterReplot(){
 }
 #endif
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
-{
+MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent),
+                                           ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
     //Set fake battery percentage
     ui->prgBattPct->setValue(100);
 
     //Initialize DataSourceProvider
-    datUltrasoud=new DataSourceProvider();
-    smCurrentState=new StateMachine();
+    datUltrasoud = new DataSourceProvider();
+    smCurrentState = new StateMachine();
     ui->lblSamplingRate->setText(datUltrasoud->SamplingRateToString());
     ui->lblGain->setText(datUltrasoud->GainToString());
     ui->lblTimespan->setText(datUltrasoud->DisplayTimespanToString());
@@ -96,7 +94,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QFont fntAxisFont(ui->chrtData->xAxis->tickLabelFont());
     fntAxisFont.setStyleStrategy(QFont::NoAntialias);
     ui->chrtData->xAxis->setTickLabelFont(fntAxisFont);
-    fntAxisFont=ui->chrtData->yAxis->tickLabelFont();
+    fntAxisFont = ui->chrtData->yAxis->tickLabelFont();
     fntAxisFont.setStyleStrategy(QFont::NoAntialias);
     ui->chrtData->yAxis->setTickLabelFont(fntAxisFont);
     ui->chrtData->setBackground(QBrush(Qt::black));
@@ -122,9 +120,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->chrtData->yAxis2->setTickLabelColor(Qt::white);
     ui->chrtData->xAxis->setLabel("Time / ms");
     ui->chrtData->yAxis->setLabel("Value");
-    ui->chrtData->xAxis->setRange(0,datUltrasoud->GetCurrentDisplayTimespan());
-    ui->chrtData->yAxis->setRange(0,50);
-    if (0==ui->chrtData->graphCount()){
+    ui->chrtData->xAxis->setRange(0, datUltrasoud->GetCurrentDisplayTimespan());
+    ui->chrtData->yAxis->setRange(0, 50);
+    if (0 == ui->chrtData->graphCount()) {
         ui->chrtData->addGraph();
     }
 
@@ -136,7 +134,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->chrtData->graph(0)->setAntialiased(false);
     ui->chrtData->graph(0)->setAntialiasedFill(false);
     ui->chrtData->graph(0)->setAntialiasedScatters(false);
-    ui->chrtData->graph(0)->setPen(QPen(QColor(0,150,245),1));
+    ui->chrtData->graph(0)->setPen(QPen(QColor(0, 150, 245), 1));
     ui->chrtData->graph(0)->setLineStyle(QCPGraph::lsLine);
     ui->chrtData->graph(0)->setScatterStyle(QCPScatterStyle::ssNone);
     ui->chrtData->graph(0)->setAdaptiveSampling(true);
@@ -151,9 +149,9 @@ MainWindow::MainWindow(QWidget *parent) :
 #ifdef TIMER_PERFORMANCE_TESTING
     //Frame Counter
     //ui->lblCounter->setText(QString::number(iTotalFrames)+QString(" Plot(s)")+QString("\r\n")+QString::number(iFps)+QString(" fps"));
-    ui->lblCounter->setText(QString::number(iFps)+QString(" fps"));
+    ui->lblCounter->setText(QString::number(iFps) + QString(" fps"));
     connect(ui->chrtData, SIGNAL(afterReplot()), this, SLOT(chrtData_afterReplot()));
-    tmrFrameCounter=new QTimer(this);
+    tmrFrameCounter = new QTimer(this);
     connect(tmrFrameCounter, SIGNAL(timeout()), this, SLOT(tmrFrameCounter_Tick()));
     tmrFrameCounter->start(1000);
 #else
@@ -161,50 +159,49 @@ MainWindow::MainWindow(QWidget *parent) :
 #endif
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow() {
     delete ui;
 }
 
-void MainWindow::keyPressEvent(QKeyEvent *KeyEventArgs){
+void MainWindow::keyPressEvent(QKeyEvent * KeyEventArgs) {
     QWidget::keyPressEvent(KeyEventArgs);
 }
 
-void MainWindow::keyReleaseEvent(QKeyEvent *KeyEventArgs){
+void MainWindow::keyReleaseEvent(QKeyEvent * KeyEventArgs) {
     QPalette pltSamplingRate(ui->wgtSamplingRate->palette());
     QPalette pltGain(ui->wgtGain->palette());
     QPalette pltTimespan(ui->wgtTimespan->palette());
-    switch (KeyEventArgs->key()){
+    switch (KeyEventArgs->key()) {
     case Qt::Key_1: //Finish
         smCurrentState->SetCurrentState(SM_STATE_NOTMAL);
-        pltSamplingRate.setColor(QPalette::Background,QColor(75,75,75));
-        pltGain.setColor(QPalette::Background,QColor(75,75,75));
-        pltTimespan.setColor(QPalette::Background,QColor(75,75,75));
+        pltSamplingRate.setColor(QPalette::Background, QColor(75, 75, 75));
+        pltGain.setColor(QPalette::Background, QColor(75, 75, 75));
+        pltTimespan.setColor(QPalette::Background, QColor(75, 75, 75));
         ui->wgtSamplingRate->setPalette(pltSamplingRate);
         ui->wgtGain->setPalette(pltGain);
         ui->wgtTimespan->setPalette(pltTimespan);
         break;
     case Qt::Key_2: //Value plus
-        switch (smCurrentState->GetCurrentState()){
+        switch (smCurrentState->GetCurrentState()) {
         case SM_STATE_NOTMAL:
             break;
         case SM_STATE_SAMPLINGRATE_ADJUSTING:
-            if (datUltrasoud->GetCurrentSamlingRate()<=__INT_MAX__){
-                datUltrasoud->SetCurrentSamplingRate(datUltrasoud->GetCurrentSamlingRate()*2);
+            if (datUltrasoud->GetCurrentSamlingRate() <= __INT_MAX__) {
+                datUltrasoud->SetCurrentSamplingRate(datUltrasoud->GetCurrentSamlingRate() * 2);
                 ui->lblSamplingRate->setText(datUltrasoud->SamplingRateToString());
                 RegenerateXAxisData();
                 UpdateAxisData();
             }
             break;
         case SM_STATE_GAIN_ADJUSTING:
-            if (datUltrasoud->GetCurrentGainInMultiple()<=4){
-                datUltrasoud->SetCurrentGainInMultiple(datUltrasoud->GetCurrentGainInMultiple()*2);
+            if (datUltrasoud->GetCurrentGainInMultiple() <= 4) {
+                datUltrasoud->SetCurrentGainInMultiple(datUltrasoud->GetCurrentGainInMultiple() * 2);
                 ui->lblGain->setText(datUltrasoud->GainToString());
             }
             break;
         case SM_STATE_TIMESPAN_ADJUSTING:
-            if (datUltrasoud->GetCurrentDisplayTimespan()<=__INT_MAX__){
-                datUltrasoud->SetCurrentDisplayTimespan(datUltrasoud->GetCurrentDisplayTimespan()*2);
+            if (datUltrasoud->GetCurrentDisplayTimespan() <= __INT_MAX__) {
+                datUltrasoud->SetCurrentDisplayTimespan(datUltrasoud->GetCurrentDisplayTimespan() * 2);
                 ui->lblTimespan->setText(datUltrasoud->DisplayTimespanToString());
                 RegenerateXAxisData();
                 UpdateAxisData();
@@ -217,26 +214,26 @@ void MainWindow::keyReleaseEvent(QKeyEvent *KeyEventArgs){
 
         break;
     case Qt::Key_3: //Value minus
-        switch (smCurrentState->GetCurrentState()){
+        switch (smCurrentState->GetCurrentState()) {
         case SM_STATE_NOTMAL:
             break;
         case SM_STATE_SAMPLINGRATE_ADJUSTING:
-            if (datUltrasoud->GetCurrentSamlingRate()>=50){
-                datUltrasoud->SetCurrentSamplingRate(datUltrasoud->GetCurrentSamlingRate()/2);
+            if (datUltrasoud->GetCurrentSamlingRate() >= 50) {
+                datUltrasoud->SetCurrentSamplingRate(datUltrasoud->GetCurrentSamlingRate() / 2);
                 ui->lblSamplingRate->setText(datUltrasoud->SamplingRateToString());
                 RegenerateXAxisData();
                 UpdateAxisData();
             }
             break;
         case SM_STATE_GAIN_ADJUSTING:
-            if (datUltrasoud->GetCurrentGainInMultiple()>=0.5){
-                datUltrasoud->SetCurrentGainInMultiple(datUltrasoud->GetCurrentGainInMultiple()/2);
+            if (datUltrasoud->GetCurrentGainInMultiple() >= 0.5) {
+                datUltrasoud->SetCurrentGainInMultiple(datUltrasoud->GetCurrentGainInMultiple() / 2);
                 ui->lblGain->setText(datUltrasoud->GainToString());
             }
             break;
         case SM_STATE_TIMESPAN_ADJUSTING:
-            if (datUltrasoud->GetCurrentDisplayTimespan()>=2){
-                datUltrasoud->SetCurrentDisplayTimespan(datUltrasoud->GetCurrentDisplayTimespan()/2);
+            if (datUltrasoud->GetCurrentDisplayTimespan() >= 2) {
+                datUltrasoud->SetCurrentDisplayTimespan(datUltrasoud->GetCurrentDisplayTimespan() / 2);
                 ui->lblTimespan->setText(datUltrasoud->DisplayTimespanToString());
                 RegenerateXAxisData();
                 UpdateAxisData();
@@ -250,27 +247,27 @@ void MainWindow::keyReleaseEvent(QKeyEvent *KeyEventArgs){
         break;
     case Qt::Key_4: //Set Timespan
         smCurrentState->SetCurrentState(SM_STATE_TIMESPAN_ADJUSTING);
-        pltSamplingRate.setColor(QPalette::Background,QColor(75,75,75));
-        pltGain.setColor(QPalette::Background,QColor(75,75,75));
-        pltTimespan.setColor(QPalette::Background,QColor(150,150,150));
+        pltSamplingRate.setColor(QPalette::Background, QColor(75, 75, 75));
+        pltGain.setColor(QPalette::Background, QColor(75, 75, 75));
+        pltTimespan.setColor(QPalette::Background, QColor(150, 150, 150));
         ui->wgtSamplingRate->setPalette(pltSamplingRate);
         ui->wgtGain->setPalette(pltGain);
         ui->wgtTimespan->setPalette(pltTimespan);
         break;
     case Qt::Key_8: //Set Gain
         smCurrentState->SetCurrentState(SM_STATE_GAIN_ADJUSTING);
-        pltSamplingRate.setColor(QPalette::Background,QColor(75,75,75));
-        pltGain.setColor(QPalette::Background,QColor(150,150,150));
-        pltTimespan.setColor(QPalette::Background,QColor(75,75,75));
+        pltSamplingRate.setColor(QPalette::Background, QColor(75, 75, 75));
+        pltGain.setColor(QPalette::Background, QColor(150, 150, 150));
+        pltTimespan.setColor(QPalette::Background, QColor(75, 75, 75));
         ui->wgtSamplingRate->setPalette(pltSamplingRate);
         ui->wgtGain->setPalette(pltGain);
         ui->wgtTimespan->setPalette(pltTimespan);
         break;
     case Qt::Key_B: //Set Sampling Rate
         smCurrentState->SetCurrentState(SM_STATE_SAMPLINGRATE_ADJUSTING);
-        pltSamplingRate.setColor(QPalette::Background,QColor(150,150,150));
-        pltGain.setColor(QPalette::Background,QColor(75,75,75));
-        pltTimespan.setColor(QPalette::Background,QColor(75,75,75));
+        pltSamplingRate.setColor(QPalette::Background, QColor(150, 150, 150));
+        pltGain.setColor(QPalette::Background, QColor(75, 75, 75));
+        pltTimespan.setColor(QPalette::Background, QColor(75, 75, 75));
         ui->wgtSamplingRate->setPalette(pltSamplingRate);
         ui->wgtGain->setPalette(pltGain);
         ui->wgtTimespan->setPalette(pltTimespan);
